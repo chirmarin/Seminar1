@@ -40,7 +40,6 @@ else {
 32679 -> 6
 */
 
-/*
 int chkThirdNumber = 100;
 int limThirdNumber = 1000;
 int cmnDivider = 10;
@@ -70,7 +69,6 @@ minusOneDigit = absInpNumber / cmnDivider; //теперь делаем на 1 р
 findDigit = absInpNumber - minusOneDigit * cmnDivider;
 
 Console.WriteLine($"Искомая цифра: {System.Math.Abs(findDigit)}");
-*/
 
 /*
 Задача 15: 
