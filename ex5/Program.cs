@@ -1,4 +1,4 @@
-﻿//string [,] table = new string[2,5];
+//string [,] table = new string[2,5];
 
 //String.Empty - default initialization
 // table[0,0]  table[0,1]  table[0,2]  table[0,3]  table[0,4]  
