@@ -112,6 +112,104 @@ int GetSum(int number){
     }
     return sum;
 }
-
 */
 
+
+//Задача 28. Напишите программу, которая принимает на вход число N и выдает произведение числ от 1 до N
+//4 -> 24   5-> 120
+
+/*
+Console.WriteLine("Введите число:");
+
+bool usersNumber = int.TryParse(Console.ReadLine(), out int number);
+if(!usersNumber){
+    Console.WriteLine("Неверное число");
+    return;
+}
+else {
+    int factorial = Factorial(number);
+}
+
+Console.WriteLine($"Факториал числа {number} равен {Factorial(number)}");
+
+void Test(){
+    int[] numbers = new int[]{4,5};
+    int[] sums = new int[]{24,120};
+
+    for (var i = 0; i < numbers.Length; i++){
+        int sum = Factorial(numbers[i]);
+        if (sum != sums[i]){
+            Console.WriteLine($"Ожидали получить {sums[i]}, получили -> {sum}");
+        }
+        else{
+            Console.WriteLine($"Результат: {sums[i]}");
+        }
+    }
+}
+
+int Factorial(int number){
+    if(number == 0 || number == 1){
+        return 1;
+    }
+    return number * Factorial(number - 1);
+}
+*/
+/*
+int num = int.Parse(Console.ReadLine());
+double j = CountDigitNumber(num);
+Console.WriteLine(j);
+
+double CountDigitNumber(int n){
+    double product = 1;
+    for(it i = 1; i <= n; i++){
+        product = product * i;
+    }
+    return product;
+}
+*/
+
+
+// Задача 30. НАпишите программу, которая выводит маcсив из 8 элементов, завполненный нулями и единицами в случайном порядке.
+
+Random rnd = new Random();
+
+bool isInt = int.TryParse(Console.ReadLine(), out int num);
+if(!isInt){
+    Console.WriteLine("Неверный ввод");
+}
+else{
+    int userLength = num;
+
+    int[] userArray = ArrayFilling(userLength);
+    PrintArray(userArray);  
+    Test(userArray, userLength);
+
+    int[] ArrayFilling(int userLength){
+        int[] arr = new int[userLength];
+        for(int i = 0; i < arr.Length; i++){
+            arr[i] = rnd.Next(0,2);
+        }
+        return arr;
+    } 
+
+    void PrintArray(int [] array){
+        for(int i = 0; i < array.Length; i++){
+            Console.WriteLine($"{array[i]} ");
+        }
+    }
+}
+
+void Test(int[] userArray, int userLength){    
+    if(userArray.Length == userLength){
+        Console.WriteLine("Тест на длину прошел успешно");
+    }
+    else{
+        Console.WriteLine("Тест на длину прошел неуспешно");
+    }
+    for(int i = 0; i < userArray.Length; i++){
+        if(!(i == 0) || (i == 1)){
+            Console.WriteLine("Тест на совместимость данных прошел неуспешно");
+        }
+    }
+    Console.WriteLine("Тест на совместимость данных прошел успешно");
+}
