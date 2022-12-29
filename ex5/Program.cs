@@ -81,20 +81,16 @@ for (int i = 1; i < 40; i++){
 
 /*
 bool isParsed = int.TryParse(Console.ReadLine(), out int number);
-
 if(!isParsed || number < 1){
     Console.WriteLine("Неверное число!");
     return;
 }
-
 int sum = GetSum(number);
 Console.WriteLine(sum);*/
 
 /*
-
 int[] numbers = new int[]{1,2,3,4};
 int[] sums = new int[]{1,3,6,10};
-
 for (var i = 0; i < numbers.Length; i++){
     int sum = GetSum(numbers[i]);
     if (sum != sums[i]){
@@ -104,7 +100,6 @@ for (var i = 0; i < numbers.Length; i++){
         Console.WriteLine("Все ок!");
     }
 }
-
 int GetSum(int number){
     int sum = 0;
     for(var i = 1; i <= number; i++){
@@ -120,7 +115,6 @@ int GetSum(int number){
 
 /*
 Console.WriteLine("Введите число:");
-
 bool usersNumber = int.TryParse(Console.ReadLine(), out int number);
 if(!usersNumber){
     Console.WriteLine("Неверное число");
@@ -129,13 +123,10 @@ if(!usersNumber){
 else {
     int factorial = Factorial(number);
 }
-
 Console.WriteLine($"Факториал числа {number} равен {Factorial(number)}");
-
 void Test(){
     int[] numbers = new int[]{4,5};
     int[] sums = new int[]{24,120};
-
     for (var i = 0; i < numbers.Length; i++){
         int sum = Factorial(numbers[i]);
         if (sum != sums[i]){
@@ -146,7 +137,6 @@ void Test(){
         }
     }
 }
-
 int Factorial(int number){
     if(number == 0 || number == 1){
         return 1;
@@ -158,7 +148,6 @@ int Factorial(int number){
 int num = int.Parse(Console.ReadLine());
 double j = CountDigitNumber(num);
 Console.WriteLine(j);
-
 double CountDigitNumber(int n){
     double product = 1;
     for(it i = 1; i <= n; i++){
