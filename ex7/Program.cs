@@ -212,13 +212,12 @@ int[] GenerateArray(int min, int max, int length){
 
 int SymmElementsProducts(int[] arr){
     int[] arr2 = new int[arr.Length/2 + arr.Length%2];
-    for(int i = 0; i < arr2.Length; i++){
-        if(i != arr.Length - i - 1){
-            arr2[i] = arr[i] * arr[arr.Length - i -1];            
-        }
-        else{
-            arr2[i] = arr[i];
-        }
+    int i = 0;
+    for(i = 0; i < arr2.Length - 1; i++){
+        arr2[i] = arr[i] * arr[arr.Length - i -1];            
+    }
+    if(i != arr2.Length - i - 1){
+        arr2[i] = arr[i];
     }
     return arr2;
 }
@@ -229,9 +228,67 @@ void PrintArray(int[] array){
 }
 */
 
-
 /*6 seminar*/
-
-
-
 /*7 seminar*/
+//using static Common.Helper.cs;
+/*
+    Задача 46. Задайте двумерный массив размером m*n, 
+    заполненный случайными целыми числами.
+    m = 3, n = 4
+    1 4 8 19
+    5 -2 33 -2
+    77 3 8 1
+*/
+/*
+int[,] array = CreateRandom2DArray(3,4);
+Print2DArray(array);
+
+int[,] CreateRandom2DArray(int countOfRows, int countOfColumns){
+    Random random = new Random();
+    int[,] array = new int[countOfRows, countOfColumns];
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            array[i, j] = random.Next(-10, 11);
+        }
+    }
+    return array;
+}
+
+void Print2DArray(int[,] array){
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+*/
+
+//(int,int) coordinates = GetSomething();
+//Console.WriteLine(coordinates.Item1);
+//Console.WriteLine(coordinates.Item2);
+
+//Methods
+/*int[] GetSomething(){
+    int a = 5;
+    int b = 5;
+
+    int[] array = new int[2];
+    array[0] = a;
+    array[1] = b;
+    return array;
+}
+
+(int,int) GetSomething(){ //аналогично списку в return
+    int a = 5;
+    int b = 15;
+    return (a,b);
+}
+*/
+
+int [] array = new int[4]{1,2,3,4};
+string str = string.Join(",", array);
+Console.WriteLine(str);
+string str2 = $"str";
+string.Format("Это означает {0} равно {1} ффф {2}", 1, 2, 3); //с нуля
+
