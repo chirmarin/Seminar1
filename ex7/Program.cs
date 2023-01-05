@@ -341,3 +341,164 @@ int[] ReverseArray(int[] array){
 }
 */
 
+/*
+    Задача 40: Напишите программу, которая принимает на
+    вход три числа и проверяет, может ли существовать треугольник с сторонами такой длины.
+    Теорема о неравенстве треугольника: каждая сторона треугольника меньше суммы двух других сторон.
+*/
+/*
+using static Common.Helpers;
+
+int a = InputInt("Введите сторону A = ");
+int b = InputInt("Введите сторону B = ");
+int c = InputInt("Введите сторону C = ");
+bool res = isTriangle(a,b,c);
+Print(res);
+
+int InputInt(string textConsole){
+    Console.Write(textConsole);
+    bool isInt = int.TryParse(Console.ReadLine(), out int number);
+    if (isInt && number > 0){
+        return number;
+    }
+    else{
+        Console.WriteLine("Неверный ввод!");
+        return InputInt(textConsole);
+    }
+}
+
+bool isTriangle(int a, int b, int c){    
+    return (a<(b+c) && b<(a+c) && c<(a+b));
+}
+*/
+
+/*
+    Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное. 
+    45 -> 101101
+    3 -> 11
+    2 -> 10
+*/
+/*
+using static Common.Helpers;
+
+int number = InputIntNegativeAndPositive("Введите целое число: ");
+Print($"Исходное число = {number}");
+
+int[] result = TenToBin(number);
+Print("Итоговое число:");
+PrintArray(result);
+Console.WriteLine();
+
+Console.WriteLine($"Второй способ. Исходное = {number}, Итоговое = {GetToBin(number)}");
+
+int[] TenToBin(int num){
+    int numRange = 0;
+    int numTemp = num;
+    while(numTemp > 0){//разряды
+        numTemp /= 2;
+        numRange++;
+    }
+    int length = numRange;
+    int[] arr = new int[length];
+    for(int i = length - 1; i >= 0; i--){
+        arr[i] = num % 2;
+        num = num / 2;
+    }  
+    return arr;
+}
+
+string GetToBin(int number){
+    string binar = string.Empty;
+    while(number != 0){
+        binar = number % 2 + binar;
+        number /= 2;
+    }
+    return binar;
+}
+*/
+
+// EXCEPTIONS
+/*
+using static Common.Helpers;
+int number;
+try{
+    number = InputIntNumberWithException("Введите целое число: ");
+}
+catch(ArgumentException ex){
+    Console.WriteLine(ex.Message);
+    return;
+}
+int aaa = number + 1;//available here, not init in try-catch
+*/
+
+/*
+    Задача 44: Не используя рекурсию, выведите первые N чисел Фибоначчи. 
+    Первые два числа Фибоначчи: 0 и 1.
+    Если N = 5 -> 0 1 1 2 3 
+    Если N = 3 -> 0 1 1
+    Если N = 7 -> 0 1 1 2 3 5 8
+*/
+/*
+using static Common.Helpers;
+
+uint inputNumber = InputIntPositive("Введите целое положительное число: ");
+uint[] fib = Fibonacci(inputNumber);
+PrintArrayUint(fib);
+Console.WriteLine();
+Console.WriteLine("Второй способ:");
+Fibonacci2(inputNumber);
+
+uint[] Fibonacci(uint userNum){
+    uint[] arr = new uint[userNum];    
+    if(!(userNum > 1)) return arr;
+    arr[0] = 0;
+    arr[1] = 1;
+    for(int i = 2; i < userNum; i++){
+        arr[i] = arr[i-1] + arr[i-2];
+    }
+    return arr;
+}
+
+void Fibonacci2(uint number){
+    int a = 0;
+    int b = 1;
+    if(number == 1) Console.Write($"{a} ");
+    else{
+        int temp = 0;
+        Console.Write($"{a} ");
+        Console.Write($"{b} ");
+        for(int i = 2; i < number; i++){
+            temp = a;
+            a = b;
+            b = b + temp;
+            Console.Write($"{b} ");
+        }
+    }
+}
+*/
+/*
+Задача 45: Напишите программу, которая будет создавать копию заданного массива 
+с помощью поэлементного копирования.
+*/
+/*
+using static Common.Helpers;
+
+int minNumber = 1;
+int maxNumber = 11;
+int length = 5;
+int[] userArray = GenerateArrayInt(minNumber, maxNumber, length);
+Console.WriteLine("Сгенерированный массив данных:");
+PrintArrayInt(userArray);
+Console.WriteLine();
+Console.WriteLine("Скопированный массив данных:");
+int[] resultArray = CopyArr(userArray);
+PrintArrayInt(resultArray);
+
+int[] CopyArr(int[] tempArray){
+    int[] copyArr = new int[tempArray.Length];
+    for(int i = 0; i < tempArray.Length; i++){
+        copyArr[i] = tempArray[i];
+    }
+    return copyArr;
+}
+*/
