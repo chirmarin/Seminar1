@@ -286,9 +286,58 @@ void Print2DArray(int[,] array){
 }
 */
 
+/*
 int [] array = new int[4]{1,2,3,4};
 string str = string.Join(",", array);
 Console.WriteLine(str);
 string str2 = $"str";
 string.Format("Это означает {0} равно {1} ффф {2}", 1, 2, 3); //с нуля
+*/
+
+/*
+using static Common.Helpers;
+
+int[] array = CreateRandomArray();
+PrintArray(array);
+/*
+int[] CreateRandomArray(){
+    Random random = new Random();
+    int[] array = new int[10];
+    for(int i = 0; i < array.Length; i++){
+        array[i] = random.Next(int.MinValue, int.MaxValue);   
+    }
+    return array;
+}
+
+void PrintArray(int[] array){
+    for(int i = 0; i < array.Length; i++){
+        Console.Write(array[i]);
+        Console.Write(" ");
+    }
+}
+*/
+
+
+// Напишите программу, которая перевернет одномерный массив
+// (последний элемент будет на первом месте, а первый на последнем и т.д.)
+// [1 2 3 4 5] -> [5 4 3 2 1]
+// [6 7 3 6] -> [6 3 7 6]
+
+/*
+using static Common.Helpers;
+
+int[] array = CreateRandomArray();
+PrintArray(array);
+Console.WriteLine();
+int[] reversed = ReverseArray(array);
+PrintArray(reversed);
+
+int[] ReverseArray(int[] array){
+    int[] reversedArray = new int[array.Length];
+    for(int i = 0; i < array.Length; i++){
+        reversedArray[i] = array[array.Length - 1 -i ];
+    }
+    return reversedArray;
+}
+*/
 
