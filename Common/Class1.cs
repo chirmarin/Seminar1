@@ -65,4 +65,22 @@ public static class Helpers
     }
     return array;
     }
+    public static int[,] CreateRandom2DArray(int countOfRows, int countOfColumns, int min, int max){
+    Random random = new Random();
+    int[,] array = new int[countOfRows, countOfColumns];
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            array[i, j] = random.Next(min, max);
+        }
+    }
+    return array;
+    }
+    public static void Print2DIntArray(int[,] tempArray){ 
+    for(int i = 0; i < tempArray.GetLength(0); i++){
+        for(int j = 0; j < tempArray.GetLength(1); j++){
+            Console.Write($"{tempArray[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+    }
 }
