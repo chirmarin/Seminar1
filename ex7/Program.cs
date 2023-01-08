@@ -291,7 +291,9 @@ int [] array = new int[4]{1,2,3,4};
 string str = string.Join(",", array);
 Console.WriteLine(str);
 string str2 = $"str";
-string.Format("Это означает {0} равно {1} ффф {2}", 1, 2, 3); //с нуля
+string.Format("Это означает {0} равно {1} ффф {2}", 1, "", GetSomething().Item1); //с нуля
+//string.IsNullOrWhiteSpace();//проверка на наличие пробелов или пустых строк
+//string.Compare //с числами работает???
 */
 
 /*
@@ -500,5 +502,210 @@ int[] CopyArr(int[] tempArray){
         copyArr[i] = tempArray[i];
     }
     return copyArr;
+}
+*/
+
+/*
+    Задайте двумерный массив размера m на n, каждый элемент в массиве
+    находится по формуле: Ann = m + n.
+    Выведите полученный массив на экран.
+    m = 3, n = 4. 0 1 23
+*/
+
+/*
+using static Common.Helpers;
+
+int[,] result = CreateArrayWithFormule(3, 4);
+Print2DIntArray(result);
+
+int[,] CreateArrayWithFormule(int m, int n){
+    int[,] array = new int[m,n];
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            array[i,j] = i + j;
+        }
+    }
+    return array;
+}
+*/
+
+/*
+    Задайте двумерный массив. 
+    Найдите элементы, у которых оба индекса нечетные
+    и замените эти элементы на их квадраты.
+    Например, изначально массив выглядел так:
+    1 47 2 5 92 3 8 42 4
+    Новый массив будет выглядеть вот так:
+    1 47 2
+    58129
+    8 42 4
+*/
+/*
+double[,] array = CreateRandom2DArray(3, 3, 1, 11);
+Print2DDoubleArray(array);
+Console.WriteLine();
+Print2DDoubleArray(EditArray(array));
+
+double[,] EditArray(double[,] userArray){
+    double[,] array = new double[userArray.GetLength(0),userArray.GetLength(1)];
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            if(i%2 != 0 && j%2 != 0){
+                array[i,j] = Math.Pow(userArray[i,j], 2);
+            }
+            else{
+                array[i,j] = userArray[i,j];
+            }
+            
+        }
+    }
+    return array;
+}   
+
+double[,] CreateRandom2DArray(int countOfRows, int countOfColumns, int min, int max){
+    Random random = new Random();
+    double[,] array = new double[countOfRows, countOfColumns];
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            array[i, j] = random.Next(min, max);
+        }
+    }
+    return array;
+}
+
+void Print2DDoubleArray(double[,] tempArray){ 
+    for(int i = 0; i < tempArray.GetLength(0); i++){
+        for(int j = 0; j < tempArray.GetLength(1); j++){
+            Console.Write($"{tempArray[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
+*/
+
+/*
+    Задайте двумерный массив.
+    Например, задан массив:
+    1 4 7 2
+    5 9 2 3
+    8 4 2 4
+    Сумма элементов главной диагонали: 1 + 9 + 2 = 12
+*/
+/*
+using static Common.Helpers;
+
+int[,] array = CreateRandom2DArray(3, 4, 1, 11);
+Print2DIntArray(array);
+Console.WriteLine();
+Console.WriteLine($"Сумма диаг элементов = {SumArrayDiag(array)}");
+
+int SumArrayDiag(int[,] userArray){
+    int counter = 0;
+    for(int i = 0; i < array.GetLength(0); i++){
+        for(int j = 0; j < array.GetLength(1); j++){
+            if(i == j){
+                counter += userArray[i, j];
+            }
+        }
+    }
+    return counter;
+}
+*/
+
+/*
+    Задача 63: Задайте значение N. 
+    Напишите программу, которая выведет все натуральные числа в промежутке от 1 до N.
+    N = 5 -> "1, 2, 3, 4, 5"
+    N = 6 -> "1, 2, 3, 4, 5, 6"    
+*/
+/*
+using static Common.Helpers;
+int n = InputIntPositive("Введите число N: ");
+NatureNumbers(1, n);
+
+void NatureNumbers(int start, int n){
+    if(n <= start - 1){
+        return;
+    }
+    Console.Write(start);
+    NatureNumbers(start + 1, n);
+}
+*/
+/*
+    Задача 65: Задайте значения M и N. 
+    Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+    M = 1; N = 5 -> "1, 2, 3, 4, 5" M = 4; N = 8 -> "4, 6, 7, 8"
+*/
+/*
+using static Common.Helpers;
+int m = InputIntPositive("Введите число M: ");
+int n = InputIntPositive("Введите число N: ");
+NatureNumbers(n, m);
+
+void NatureNumbers(int n, int start = 1){
+    if(n < start){
+        return;
+    }
+    Console.Write($"{start} ");
+    NatureNumbers(n, start + 1);
+}
+*/
+/*
+    Задача 67: Напишите программу, которая будет принимать на вход число и возвращать сумму его цифр.
+    453 -> 12 45 -> 9
+*/
+/*
+using static Common.Helpers;
+int n = InputIntPositive("Введите число: ");
+Console.WriteLine($"{SumDigits(n)}");
+
+int SumDigits(int n){
+    if(n/10 == 0) return n;
+    else return SumDigits(n/10) + n%10;
+}
+*/
+/*
+    Задача 69: Напишите программу, которая на вход принимает два числа A и B, 
+    и возводит число А в целую степень B с помощью рекурсии.
+    A = 3; B = 5 -> 243 (35) 
+    A = 2; B = 3 -> 8
+*/
+/*
+using System.Diagnostics;
+using static Common.Helpers;
+int a = InputIntPositive("Введите число A: ");
+int b = InputIntPositive("Введите число B: ");
+
+Stopwatch watch = new Stopwatch();
+watch.Start();
+    //Thread.Sleep(1000);
+    //Console.WriteLine(PowAB(a, b));
+    //double num = PowAB(a, b);
+double num = 0;
+for (int i = 0; i < 1000000; i++){
+    //num = PowAB(a, b);
+    num = GetExponentional(a, b);
+}
+watch.Stop();
+
+Console.WriteLine(watch.ElapsedMilliseconds);
+Console.WriteLine(num);
+
+double PowAB(int c, int d){
+    if(d == 0) return 1;
+    else{
+        if(d % 2 == 0) return PowAB(c, d/2) * PowAB(c, d/2);
+        else return c * PowAB(c, d - 1);
+    }
+}
+
+double GetExponentional(int a, int b){
+    double result = 1;
+    if(b == 0) return 1;
+    for (int i = 0; i < Math.Abs(b); i++){
+        result = result * a;
+    }
+    if(b < 0) return 1 / result;    
+    return result;
 }
 */
