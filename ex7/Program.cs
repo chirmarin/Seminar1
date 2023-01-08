@@ -708,4 +708,12 @@ double GetExponentional(int a, int b){
     if(b < 0) return 1 / result;    
     return result;
 }
+
+int Pow1to2(int num1, int num2, int res = 1, int count = 1){
+    if(count <= num2){
+        res = res * num1;
+        res = Pow1to2(num1, num2, res, count + 1);
+    }
+    return res;
+}
 */
