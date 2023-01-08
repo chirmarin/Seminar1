@@ -38,10 +38,10 @@ public static class Helpers
         return InputIntNegativeAndPositive(textConsole);
     }
     }
-    public static uint InputIntPositive(string textConsole){
+    public static int InputIntPositive(string textConsole){
     Console.Write(textConsole);
-    bool isUInt = uint.TryParse(Console.ReadLine(), out uint number);
-    if (isUInt /*&& number > 0*/){
+    bool isUInt = int.TryParse(Console.ReadLine(), out int number);
+    if (isUInt && number > 0){
         return number;
     }
     else{
